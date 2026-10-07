@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>REDLINE — The Art of Speed | Futuristic Supercar Showcase</title>
+  <meta name="description" content="A premium showcase of the world's most extreme hypercars and engineering masterpieces. Ferrari, Lamborghini, Bugatti, Koenigsegg, McLaren, and Porsche." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050608'/><path d='M25 75 L50 25 L75 75 Z' fill='%23E10600'/><circle cx='50' cy='55' r='10' fill='%23ffffff'/></svg>" />
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body class="carbon-bg-pattern">
+
+  <!-- ========================================================================
+       1. Navigation Bar
+       ======================================================================== -->
+  <header class="main-nav" id="main-nav">
+    <div class="container-wide nav-container">
+      <!-- Logo -->
+      <a href="#hero" class="brand-logo" aria-label="REDLINE Home">
+        <div class="brand-emblem">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="logo-text">RED<span>LINE</span></div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="nav-menu-wrap">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#supercars" class="nav-link">Supercars</a></li>
+          <li><a href="#showcase" class="nav-link">Showcase</a></li>
+          <li><a href="#performance" class="nav-link">Performance</a></li>
+          <li><a href="#brands" class="nav-link">Brands</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Controls: Search, Audio & Mobile Hamburger -->
+      <div class="nav-controls">
+        <button class="nav-search-btn open-search-trigger" aria-label="Search Vehicles">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Search</span>
+          <span class="search-shortcut-badge">Ctrl K</span>
+        </button>
+
+        <button class="nav-audio-btn" id="audio-toggle-btn" aria-label="Toggle Engine Audio">
+          <i class="fa-solid fa-volume-high text-red" id="audio-toggle-icon"></i>
+          <span id="audio-toggle-text">SOUND: ON</span>
+        </button>
+
+        <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <ul class="mobile-nav-menu">
+      <li><a href="#hero" class="mobile-nav-link"><span>01. Home</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#supercars" class="mobile-nav-link"><span>02. Supercars</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#showcase" class="mobile-nav-link"><span>03. Showcase</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#performance" class="mobile-nav-link"><span>04. Performance</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#brands" class="mobile-nav-link"><span>05. Brands</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+      <li><a href="#gallery" class="mobile-nav-link"><span>06. Gallery</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem;">
+      <button class="btn btn-red w-100 open-search-trigger">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>SEARCH VEHICLES</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       2. Hero Section
+       ======================================================================== -->
+  <section class="hero-section" id="hero">
+    <!-- Cinematic Visual Background -->
+    <div class="hero-backdrop-wrap">
+      <img 
+        src="assets/cars/ferrari-sf90.jpg" 
+        alt="Ferrari SF90 Stradale Hero Background" 
+        class="hero-bg-img" 
+      />
+      <div class="hero-vignette"></div>
+    </div>
+
+    <!-- Interactive Speed Sparks & Red Embers Canvas -->
+    <canvas id="hero-particles-canvas"></canvas>
+
+    <div class="container hero-content">
+      <div class="hero-hud-badge">
+        <span class="pulse-dot"></span>
+        <span>HYPERCAR TELEMETRY MATRIX • 2024 COLLECTION</span>
+      </div>
+
+      <h1 class="hero-headline">
+        THE ART OF <span class="text-red">SPEED</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Where engineering meets obsession. Experience the uncompromising pinnacle of modern hypercar aerodynamics, hybrid torque, and visceral combustion acoustics.
+      </p>
+
+      <div class="hero-actions-row">
+        <a href="#supercars" class="btn btn-red btn-glow">
+          <span>EXPLORE CARS</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#performance" class="btn btn-glass">
+          <i class="fa-solid fa-gauge-high text-red"></i>
+          <span>TEST ACCELERATION</span>
+        </a>
+      </div>
+
+      <!-- Quick Telemetry Strip -->
+      <div class="hero-telemetry-strip">
+        <div class="strip-item">
+          <span class="strip-val">1,600 <small>HP</small></span>
+          <span class="strip-lbl">PEAK OUTPUT</span>
+        </div>
+        <div class="strip-item">
+          <span class="strip-val">480+ <small>KM/H</small></span>
+          <span class="strip-lbl">VELOCITY CEILING</span>
+        </div>
+        <div class="strip-item">
+          <span class="strip-val">2.3 <small>SEC</small></span>
+          <span class="strip-lbl">0 - 100 KM/H</span>
+        </div>
+        <div class="strip-item">
+          <span class="strip-val">1,400 <small>KG</small></span>
+          <span class="strip-lbl">AERO DOWNFORCE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#supercars" class="hero-scroll-indicator" aria-label="Scroll down to Supercars">
+      <div class="mouse-scroll-icon">
+        <div class="mouse-scroll-wheel"></div>
+      </div>
+      <span>SCROLL DOWN</span>
+    </a>
+  </section>
+
+  <!-- ========================================================================
+       3. Supercars Section (Interactive Cards & Filtering)
+       ======================================================================== -->
+  <section class="section supercars-section" id="supercars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tagline">
+          <i class="fa-solid fa-flag-checkered"></i>
+          <span>FLAGSHIP FLEET</span>
+        </div>
+        <h2 class="section-title">THE <span class="text-red">APEX</span> MACHINES</h2>
+        <p class="section-desc">
+          Precision-crafted carbon chassis, quad-turbochargers, screaming naturally aspirated V12s, and cutting-edge tri-motor hybrid torque vectoring.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-bar">
+        <button class="car-filter-btn active" data-filter="all">ALL SUPERCARS (8)</button>
+        <button class="car-filter-btn" data-filter="hypercar">HYPERCARS</button>
+        <button class="car-filter-btn" data-filter="v12">V12 BEASTS</button>
+        <button class="car-filter-btn" data-filter="hybrid">HYBRID ELECTRIFIED</button>
+        <button class="car-filter-btn" data-filter="track">TRACK WEAPONS</button>
+      </div>
+
+      <!-- Dynamic Cards Grid (Populated from data.js) -->
+      <div class="supercars-grid" id="supercars-grid"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. Sliding Car Showcase (Large Cinematic Carousel)
+       ======================================================================== -->
+  <section class="section showcase-section" id="showcase">
+    <div class="container-wide">
+      <div class="section-header">
+        <div class="section-tagline">
+          <i class="fa-solid fa-sliders"></i>
+          <span>CURATED SPOTLIGHT</span>
+        </div>
+        <h2 class="section-title">CINEMATIC <span class="text-red">SHOWCASE</span></h2>
+        <p class="section-desc">
+          Step inside the bespoke engineering suites of our four most legendary hypercars.
+        </p>
+      </div>
+
+      <div class="showcase-slider-wrap" id="showcase-slider">
+        <!-- Top Slider Header: Counter & Navigation Arrows -->
+        <div class="showcase-top-controls">
+          <div class="showcase-counter" id="showcase-counter">
+            <span class="counter-cur">01</span>
+            <span class="counter-sep">/</span>
+            <span class="counter-tot">04</span>
+          </div>
+          <div class="showcase-arrows">
+            <button class="slider-arrow-btn" id="showcase-prev" aria-label="Previous Slide">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow-btn" id="showcase-next" aria-label="Next Slide">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sliding Track -->
+        <div class="showcase-track" id="showcase-track"></div>
+
+        <!-- Red Progress Indicator & Jump Dots -->
+        <div class="showcase-progress-wrap">
+          <div class="showcase-progress-bar" id="showcase-progress-bar"></div>
+        </div>
+        <div class="showcase-dots" id="showcase-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       5. Performance Section & Interactive Speed Dyno
+       ======================================================================== -->
+  <section class="section performance-section section-darker" id="performance">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tagline">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>TELEMETRY BENCHMARK</span>
+        </div>
+        <h2 class="section-title">PHYSICS AT <span class="text-red">THE LIMIT</span></h2>
+        <p class="section-desc">
+          Raw numerical supremacy calculated on FIA-graded circuits, aerodynamic wind tunnels, and high-speed banked ovals.
+        </p>
+      </div>
+
+      <!-- Animated Metric Counters -->
+      <div class="stats-counter-grid">
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-fire"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="1600" data-decimal="false">0</span>
+            <span class="stat-unit">HP</span>
+          </div>
+          <div class="stat-label">MAX HORSEPOWER</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-gauge-simple-high"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="485" data-decimal="false">0</span>
+            <span class="stat-unit">KM/H</span>
+          </div>
+          <div class="stat-label">RECORD VELOCITY</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-stopwatch"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="2.3" data-decimal="true">0.0</span>
+            <span class="stat-unit">SEC</span>
+          </div>
+          <div class="stat-label">0 - 100 KM/H BENCHMARK</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-icon"><i class="fa-solid fa-angles-down"></i></div>
+          <div class="stat-number-wrap">
+            <span class="stat-number" data-target="1400" data-decimal="false">0</span>
+            <span class="stat-unit">KG</span>
+          </div>
+          <div class="stat-label">ACTIVE DOWNFORCE</div>
+        </div>
+      </div>
+
+      <!-- Interactive Speed Dyno Simulator -->
+      <div class="dyno-simulator-card">
+        <div class="dyno-grid">
+          <!-- Dyno Digital Cockpit Gauge -->
+          <div class="dyno-gauge-column">
+            <!-- Shift Light -->
+            <div class="dyno-shift-light" id="dyno-shift-light"></div>
+
+            <div class="dyno-gauge-wrap">
+              <svg viewBox="0 0 280 180" class="dyno-svg">
+                <!-- Background Arc -->
+                <path d="M 30 150 A 110 110 0 0 1 250 150" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="16" stroke-linecap="round"/>
+                <!-- Ticks -->
+                <path d="M 30 150 A 110 110 0 0 1 250 150" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="6" stroke-dasharray="2 18" stroke-linecap="butt"/>
+                <!-- Active Glowing Red Arc -->
+                <path id="dyno-speed-arc" d="M 30 150 A 110 110 0 0 1 250 150" fill="none" stroke="url(#dynoRedGrad)" stroke-width="16" stroke-dasharray="251" stroke-dashoffset="251" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="dynoRedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ff4444" />
+                    <stop offset="60%" stop-color="#e10600" />
+                    <stop offset="100%" stop-color="#ff0033" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <div class="dyno-center-readout">
+                <div class="dyno-speed-digits" id="dyno-speed-readout">0</div>
+                <div class="dyno-speed-unit">KM/H</div>
+              </div>
+            </div>
+
+            <!-- Aux Telemetry (RPM & Gear) -->
+            <div class="dyno-aux-readouts">
+              <div class="dyno-aux-item">
+                <span class="dyno-aux-val" id="dyno-rpm-readout">1,000</span>
+                <span class="dyno-aux-lbl">RPM</span>
+              </div>
+              <div class="dyno-aux-item">
+                <span class="dyno-aux-val text-red" id="dyno-gear-readout">N</span>
+                <span class="dyno-aux-lbl">GEAR</span>
+              </div>
+              <div class="dyno-aux-item">
+                <span class="dyno-aux-val">9,500</span>
+                <span class="dyno-aux-lbl">REDLINE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dyno Controls & Explanations -->
+          <div class="dyno-control-column">
+            <div class="section-tagline" style="margin-bottom: 0.5rem;">
+              <i class="fa-solid fa-bolt"></i>
+              <span>VIRTUAL CHASSIS DYNO</span>
+            </div>
+            <h3>SIMULATE MAXIMUM VELOCITY</h3>
+            <p>
+              Engage the virtual throttle to experience simulated launch control, rapid sequential dual-clutch gear shifts, redline cut-offs, and authentic exhaust pop audio synthesis in real time.
+            </p>
+
+            <button class="btn btn-red btn-glow dyno-throttle-trigger" id="dyno-throttle-btn">
+              <i class="fa-solid fa-gauge-simple-high"></i>
+              <span class="throttle-text">PRESS & HOLD TO ACCELERATE</span>
+            </button>
+            <small style="color: var(--text-dim); font-size: 0.75rem;">
+              *Click and hold with mouse or touch on mobile. Release throttle to trigger aggressive engine braking and exhaust crackles.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       6. Brands Section
+       ======================================================================== -->
+  <section class="section brands-section" id="brands">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tagline">
+          <i class="fa-solid fa-crown"></i>
+          <span>THE MARQUES OF DISTINCTION</span>
+        </div>
+        <h2 class="section-title">PRESTIGE <span class="text-red">HOUSES</span></h2>
+        <p class="section-desc">
+          Click any manufacturer to instantly inspect their engineering lineage and filter vehicles in our showcase.
+        </p>
+      </div>
+
+      <div class="brands-grid" id="brands-grid"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       7. Cinematic Gallery Section
+       ======================================================================== -->
+  <section class="section gallery-section section-darker" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tagline">
+          <i class="fa-solid fa-camera"></i>
+          <span>HIGH-RESOLUTION PHOTOGRAPHY</span>
+        </div>
+        <h2 class="section-title">THE CINEMATIC <span class="text-red">GALLERY</span></h2>
+        <p class="section-desc">
+          Explore captured light across track kerbs, wind tunnels, carbon fiber cockpits, and high-speed night runs.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Chips -->
+      <div class="filter-bar" style="margin-bottom: 2.5rem;">
+        <button class="gallery-filter-btn active" data-tag="all">ALL ARCHIVES</button>
+        <button class="gallery-filter-btn" data-tag="track">CIRCUIT & TRACK</button>
+        <button class="gallery-filter-btn" data-tag="aero">CARBON & AERO</button>
+        <button class="gallery-filter-btn" data-tag="cockpit">BESPOKE COCKPITS</button>
+        <button class="gallery-filter-btn" data-tag="night">NIGHT ROLLERS</button>
+      </div>
+
+      <!-- Masonry Grid -->
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       8. Search Modal Overlay (Ctrl + K)
+       ======================================================================== -->
+  <div class="modal-overlay" id="search-modal-overlay" role="dialog" aria-modal="true" aria-label="Search Vehicles">
+    <div class="search-modal-box" id="search-modal">
+      <div class="search-header-bar">
+        <i class="fa-solid fa-magnifying-glass search-icon-lead"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input-field" 
+          placeholder="Search by model, brand, powertrain (e.g. SF90, V12, 1000 HP, Ferrari)..." 
+          autocomplete="off"
+        />
+        <button class="search-btn-icon" id="search-clear-btn" aria-label="Clear Search Input">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button class="search-btn-icon" id="search-close-btn" aria-label="Close Search">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+      </div>
+
+      <div class="search-sub-bar">
+        <span id="search-count-label">All 8 Supercars Available</span>
+        <div class="search-quick-tags" id="search-quick-tags">
+          <span style="color: var(--text-dim); font-size: 0.72rem;">QUICK:</span>
+          <button class="search-tag-chip" data-query="V12">V12</button>
+          <button class="search-tag-chip" data-query="Ferrari">Ferrari</button>
+          <button class="search-tag-chip" data-query="1,000 HP">1000 HP</button>
+          <button class="search-tag-chip" data-query="Track">Track Focus</button>
+          <button class="search-tag-chip" data-query="Hybrid">Hybrid</button>
+        </div>
+      </div>
+
+      <div class="search-results-list" id="search-results-list"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       9. Supercar Deep Telemetry & Sound Modal
+       ======================================================================== -->
+  <div class="modal-overlay" id="car-modal-overlay" role="dialog" aria-modal="true" aria-label="Vehicle Telemetry Details">
+    <div class="car-modal-box" id="car-modal">
+      <button class="car-modal-close-btn" id="car-modal-close" aria-label="Close Vehicle Details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="car-modal-body" id="car-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       10. Fullscreen Lightbox
+       ======================================================================== -->
+  <div class="lightbox-overlay" id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Gallery Image Lightbox">
+    <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close Lightbox">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" aria-label="Previous Image">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" aria-label="Next Image">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged View" />
+      <div class="lightbox-meta-bar">
+        <div>
+          <div class="lightbox-title" id="lightbox-title"></div>
+          <div class="lightbox-car" id="lightbox-car"></div>
+          <div class="lightbox-meta" id="lightbox-meta"></div>
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter">01 / 09</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       11. Footer
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Description -->
+        <div class="footer-brand-col">
+          <a href="#hero" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-emblem">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="logo-text">RED<span>LINE</span></div>
+          </a>
+          <p>
+            An uncompromising digital sanctuary engineered for collectors, aerodynamicists, and hypercar purists. Curating the world's highest echelon of motorsport engineering.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-link-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-link-btn" aria-label="X Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link-btn" aria-label="Discord"><i class="fa-brands fa-discord"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div>
+          <h4 class="footer-col-title">NAVIGATION</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#hero">Apex Portal</a></li>
+            <li><a href="#supercars">Supercars Fleet</a></li>
+            <li><a href="#showcase">Cinematic Showcase</a></li>
+            <li><a href="#performance">Performance Dyno</a></li>
+            <li><a href="#brands">Marque Directory</a></li>
+            <li><a href="#gallery">Media Archives</a></li>
+          </ul>
+        </div>
+
+        <!-- Boutique Showrooms -->
+        <div>
+          <h4 class="footer-col-title">GLOBAL HUBS</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#supercars"><span class="text-red">●</span> Monaco • Port Hercule</a></li>
+            <li><a href="#supercars"><span class="text-red">●</span> Tokyo • Ginza Apex</a></li>
+            <li><a href="#supercars"><span class="text-red">●</span> Dubai • DIFC Galleria</a></li>
+            <li><a href="#supercars"><span class="text-red">●</span> London • Mayfair Heritage</a></li>
+            <li><a href="#supercars"><span class="text-red">●</span> Miami • Brickell Marina</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-newsletter-wrap">
+          <h4 class="footer-col-title">THE REDLINE GAZETTE</h4>
+          <p>Subscribe for private allocations, technical whitepapers, and track day invitations.</p>
+          <form id="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" id="newsletter-email" placeholder="Enter VIP email address" required />
+              <button type="submit" class="btn btn-red" style="padding: 0.75rem 1.25rem;">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+            <div id="newsletter-status"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-tagline-quote">
+          "BUILT FOR <span>SPEED</span>. DESIGNED FOR <span>OBSESSION</span>."
+        </div>
+        <div>
+          &copy; 2024 REDLINE MOTORS AUTOMOBILI. ALL SPECIFICATIONS VERIFIED BY FACTORY TELEMETRY.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

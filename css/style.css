@@ -1,0 +1,364 @@
+/* ==========================================================================
+   REDLINE - Premium Futuristic Supercar Showcase
+   Core Styles, CSS Variables, Typography & Base Architecture
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Color Palette */
+  --bg-black: #050608;
+  --bg-deep: #08090d;
+  --bg-surface: #0d0f14;
+  --bg-card: rgba(14, 17, 23, 0.75);
+  --bg-card-hover: rgba(22, 26, 35, 0.9);
+  
+  /* Primary Ferrari / Hypercar Red Accents */
+  --red-primary: #E10600;
+  --red-neon: #FF1826;
+  --red-glow: rgba(255, 24, 38, 0.45);
+  --red-glow-subtle: rgba(255, 24, 38, 0.15);
+  --red-border: rgba(255, 30, 45, 0.35);
+  
+  /* Metallic & Glass Elements */
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-light: rgba(255, 255, 255, 0.15);
+  --glass-bg: rgba(10, 12, 16, 0.7);
+  --glass-blur: blur(20px);
+  
+  /* Typography */
+  --font-display: 'Orbitron', 'Syne', -apple-system, sans-serif;
+  --font-heading: 'Syne', 'Orbitron', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Chakra Petch', monospace;
+  
+  /* Text Colors */
+  --text-white: #ffffff;
+  --text-primary: #f0f3f6;
+  --text-muted: #8b92a2;
+  --text-dim: #5c6273;
+
+  /* Transitions & Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-black);
+  position: relative;
+  min-height: 100vh;
+}
+
+body.modal-open, body.drawer-open {
+  overflow: hidden;
+}
+
+/* Carbon Fiber Texture Overlay */
+.carbon-bg-pattern {
+  background: 
+    linear-gradient(27deg, #090b0e 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #090b0e 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #0e1117 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #0e1117 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #07080b 10px, transparent 10px),
+    linear-gradient(#07080a 25%, #050608 25%, #050608 50%, #07080a 50%, #07080a 75%, #050608 75%, #050608 100%);
+  background-size: 20px 20px;
+}
+
+/* Layout Containers */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1640px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section Wrappers */
+.section {
+  padding: 7rem 0;
+  position: relative;
+}
+
+.section-darker {
+  background-color: var(--bg-deep);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Section Header Typography */
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem auto;
+  position: relative;
+}
+
+.section-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red-neon);
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 1rem;
+  background: rgba(225, 6, 0, 0.08);
+  border: 1px solid rgba(225, 6, 0, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.section-tagline i {
+  font-size: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.section-title .text-red {
+  color: var(--red-neon);
+  text-shadow: 0 0 25px rgba(255, 24, 38, 0.6);
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Red Glow Utilities */
+.text-red {
+  color: var(--red-neon) !important;
+}
+
+.glow-red {
+  box-shadow: 0 0 30px var(--red-glow);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  border: 1px solid transparent;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-red {
+  background: linear-gradient(135deg, #FF1E27 0%, #D00500 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(225, 6, 0, 0.35);
+}
+
+.btn-red:hover {
+  background: linear-gradient(135deg, #FF3841 0%, #E80700 100%);
+  box-shadow: 0 6px 30px rgba(255, 24, 38, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-glow {
+  position: relative;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff1826, #ff7300, #ff1826);
+  z-index: -1;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity var(--transition-fast);
+}
+
+.btn-glow:hover::after {
+  opacity: 0.8;
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-white);
+  border: 1px solid var(--glass-border-light);
+  backdrop-filter: blur(10px);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 24, 38, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+/* Custom Futuristic Cursor */
+.redline-cursor-dot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--red-neon);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  box-shadow: 0 0 10px var(--red-neon);
+  transition: transform 0.05s linear;
+}
+
+.redline-cursor-follower {
+  position: fixed;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255, 24, 38, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.redline-cursor-follower.cursor-hover {
+  width: 52px;
+  height: 52px;
+  top: -26px;
+  left: -26px;
+  border-color: var(--red-neon);
+  background: rgba(225, 6, 0, 0.12);
+}
+
+/* Pulsing Dots */
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--red-neon);
+  box-shadow: 0 0 12px var(--red-neon);
+  animation: pulseNeon 1.8s infinite;
+}
+
+@keyframes pulseNeon {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 18px var(--red-neon); }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 24, 38, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 24, 38, 0.85);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c202a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--red-primary);
+}
